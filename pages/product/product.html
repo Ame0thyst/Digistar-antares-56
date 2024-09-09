@@ -103,7 +103,7 @@
               <th ng-click="orderBy('name')">Name</th>
               <th ng-click="orderBy('country')">Tag</th>
               <th ng-click="orderBy('salary')">Harga</th>
-              <th ng-click="orderBy('email')">Email</th>
+              <th ng-click="orderBy('email')">Deskripsi</th>
 
               <th><img src="./assets/edit.svg" alt="edit" /></th>
               <th><img src="./assets/delete.svg" alt="delete" /></th>
@@ -138,11 +138,11 @@
           </tbody>
         </table>
         <div class="crude-form__wrapper" ng-show="triggerForm">
-          <h3 ng-show="editForm">Edit user</h3>
-          <h3 ng-show="addForm">Add user</h3>
+          <h3 ng-show="editForm">Edit Product</h3>
+          <h3 ng-show="addForm">Add Product</h3>
           <form name="userForm" ng-model="userForm">
             <div class="form-group">
-              <label for="image">Profile Picture</label>
+              <label for="image">Profile Product</label>
               <input
                 class="form-control"
                 id="imageInput"
@@ -223,16 +223,22 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email(s)</label>
+              <label for="email" id="deskripsi">Description</label>
               <textarea
                 class="form-control"
                 id="editEmail"
                 name="email"
                 ng-model="crudFormEmail"
                 ng-change="checkEmail(editUserId)"
-                placeholder="Edit email(s), separated by new lines"
+                placeholder="Product Description"
                 required="required"
                 rows="3"
+                style="
+                  max-width: 60%;
+                  width: 100%;
+                  overflow-y: auto;
+                  resize: none;
+                "
               ></textarea>
             </div>
             <div
@@ -240,13 +246,13 @@
               ng-show="userForm.email.$invalid &amp;&amp; userForm.email.$touched"
             >
               <span ng-show="userForm.email.$error.email"
-                >Please input valid email</span
+                >Please input description</span
               ><span ng-show="userForm.email.$error.required"
-                >Please input email</span
+                >Please input description</span
               >
             </div>
             <div class="form-alert alert alert-danger" ng-show="emailExisted">
-              This email has been registerd by other user
+              This description has been registerd by other user
             </div>
             <button
               class="btn btn-primary"

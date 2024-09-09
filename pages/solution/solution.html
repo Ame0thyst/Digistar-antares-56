@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop-up dengan Gambar, Deskripsi, dan Judul</title>
+    <link rel="stylesheet" href="solution.css" />
+  </head>
+  <body>
+    <!-- Background bergerak -->
+    <div class="background">
+      <div class="row row-1">
+        <img src="/assets/img/image (1).webp" alt="Gambar 1" />
+        <img src="/assets/img/image (2).webp" alt="Gambar 2" />
+        <img src="/assets/img/image (3).webp" alt="Gambar 3" />
+      </div>
+      <div class="row row-2">
+        <img src="/assets/img/platform.webp" alt="Gambar 4" />
+        <img src="/assets/img/AEdu.webp" alt="Gambar 5" />
+        <img src="/assets/img/AE.webp" alt="Gambar 6" />
+      </div>
+      <div class="row row-3">
+        <img src="/assets/img/AT.webp" alt="Gambar 7" />
+        <img src="/assets/img/SU.webp" alt="Gambar 8" />
+        <img src="/assets/img/platform.webp" alt="Gambar 9" />
+      </div>
+    </div>
+
+    <!-- Pop-up -->
+    <div class="popup">
+      <!-- Judul Pop-up -->
+      <div class="popup-title">Apa yang Kamu Butuhkan</div>
+
+      <!-- Konten Pop-up (Gambar dan Deskripsi) -->
+      <div class="popup-content">
+        <div
+          class="popup-section"
+          onclick="window.location.href='https://www.antares.id/solutions/smart-utilities'"
+        >
+          <img src="/assets/img/logo_antares.svg" alt="Gambar Kiri" />
+          <p>Deskripsi Kiri</p>
+        </div>
+        <div
+          class="popup-section"
+          onclick="window.location.href='https://www.antares.id/product/connectivity'"
+        >
+          <img src="/assets/img/logo_antares.svg" alt="Gambar Tengah" />
+          <p>Deskripsi Tengah</p>
+        </div>
+        <div
+          class="popup-section"
+          onclick="window.location.href='https://www.antares.id/solutions/track-and-trace'"
+        >
+          <img src="/assets/img/logo_antares.svg" alt="Gambar Kanan" />
+          <p>Deskripsi Kanan</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

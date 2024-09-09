@@ -64,6 +64,7 @@
 /* Ensure content below the navbar is pushed down */
 body {
   padding-top: 60px; /* Adjust based on the height of your navbar */
+  width: 90%;
 }
 
 /* Responsive design for smaller screens */
@@ -167,6 +168,18 @@ button#downloadButton:hover {
   font-size: 18px;
 }
 
-.mainContent {
+/* .mainContent {
   width: 80%;
+} */
+
+#deskripsi {
+  overflow: hidden;
+}
+.container.crud-table {
+  width: 90%; /* Atur lebar sesuai kebutuhan, misalnya 90% */
+  margin: 0 auto; /* Untuk menjaga elemen tetap berada di tengah */
+}
+
+.mainContent {
+  width: 100%; /* Memastikan konten utama memanfaatkan lebar container sepenuhnya */
 }
