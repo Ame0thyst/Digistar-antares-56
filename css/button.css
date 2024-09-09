@@ -1,0 +1,15 @@
+.orange-btn {
+  background-color: #ff7f00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.orange-btn:hover {
+  background-color: #e67000;
+  transform: scale(0.98);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Aur bayangan */
+}

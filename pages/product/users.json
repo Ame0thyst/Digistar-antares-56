@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Jani",
+    "country": "Fish",
+    "salary": 50000,
+    "email": "Guithay65@gustr.com",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "name": "Carl",
+    "country": "Farm",
+    "salary": 240000,
+    "email": "cluphetret@hotmail.com",
+    "image": ""
+  }
+]

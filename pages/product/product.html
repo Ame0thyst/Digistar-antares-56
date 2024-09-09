@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="www.google.com">
+            <img src="./assets/house-door.svg" alt="Home" class="nav-icon" />
+          </a>
+          <a class="navbar-brand" href="#">
+            <img
+              src="./assets/logo_antares.svg"
+              alt="Company Logo"
+              class="nav-logo"
+            />
+          </a>
+        </div>
+        <div class="navbar-header">
+          <span class="navbar-title">Product Catalog Management</span>
+        </div>
+
+        <div class="navbar-right">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/bell.svg" alt="Logo 1" class="nav-right-icon" />
+          </a>
+          <a class="navbar-brand" href="#">
+            <img
+              src="./assets/profile.svg"
+              alt="Logo 2"
+              class="nav-right-icon"
+            />
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- main content-->
+    <div class="container crud-table" ng-app="myApp" ng-controller="namesCtrl">
+      <div class="mainContent">
+        <div class="clearfix" id="firstLine">
+          <div class="form-inline pull-left">
+            <button class="btn btn-success" ng-click="addUser()">
+              <span class="glyphicon glyphicon-plus"> </span>Add product
+            </button>
+            <button class="btn btn-info" id="downloadButton">
+              <span class="glyphicon glyphicon-download"> </span> Export as PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <div class="form-inline pull-left">
+            <button
+              class="btn btn-primary"
+              ng-click="filterByCategory('all')"
+              ng-class="{'active': currentFilter === 'all'}"
+            >
+              All
+            </button>
+            <div class="btn-group">
+              <button
+                class="btn btn-primary dropdown-toggle"
+                ng-class="{'active': currentFilter !== 'all'}"
+                data-toggle="dropdown"
+              >
+                Category <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#" ng-click="filterByCategory('Farm')">Farm</a>
+                </li>
+                <li>
+                  <a href="#" ng-click="filterByCategory('Fish')">Fish</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-inline pull-right">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                ng-model="searchName"
+                placeholder="Type name to search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th ng-click="orderBy('name')">Name</th>
+              <th ng-click="orderBy('country')">Tag</th>
+              <th ng-click="orderBy('salary')">Harga</th>
+              <th ng-click="orderBy('email')">Email</th>
+
+              <th><img src="./assets/edit.svg" alt="edit" /></th>
+              <th><img src="./assets/delete.svg" alt="delete" /></th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr
+              ng-repeat="user in resultUser = (users | filter: filterUsers) | filter: {'name': searchName} | orderBy: order"
+            >
+              <td>{{ user.name }}</td>
+              <td>{{ user.country }}</td>
+              <td>{{ user.salary }}</td>
+              <td><pre>{{ user.email.split('\n').join('\n') }}</pre></td>
+              <td>
+                <button class="btn btn-primary" ng-click="editUser(user)">
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" ng-click="deleteUser(user)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr class="text-left">
+              <td colspan="2"><b>Total</b></td>
+              <td class="text-center">
+                {{ resultUser | totalSalary: 'salary' }}
+              </td>
+              <td colspan="3"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="crude-form__wrapper" ng-show="triggerForm">
+          <h3 ng-show="editForm">Edit user</h3>
+          <h3 ng-show="addForm">Add user</h3>
+          <form name="userForm" ng-model="userForm">
+            <div class="form-group">
+              <label for="image">Profile Picture</label>
+              <input
+                class="form-control"
+                id="imageInput"
+                type="file"
+                accept="image/*"
+                ng-model="crudFormImage"
+                onchange="angular.element(this).scope().previewImage(event)"
+              />
+              <div class="image-preview" ng-show="imageSrc">
+                <img
+                  ng-src="{{ imageSrc }}"
+                  alt="Image Preview"
+                  style="max-width: 200px; max-height: 200px"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                class="form-control"
+                id="editName"
+                type="text"
+                name="name"
+                ng-model="crudFormName"
+                placeholder="Edit name"
+                required="required"
+              />
+              <div
+                class="form-alert alert alert-danger"
+                ng-show="userForm.name.$invalid &amp;&amp; userForm.name.$touched"
+              >
+                Please input name
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="country">Tag</label>
+              <select
+                class="form-control"
+                id="editCountry"
+                name="country"
+                ng-model="crudFormCountry"
+                required="required"
+              >
+                <option value="" disabled selected>Select tag</option>
+                <option value="Farm">Farm</option>
+                <option value="Fish">Fish</option>
+              </select>
+              <div
+                class="form-alert alert alert-danger"
+                ng-show="userForm.country.$invalid &amp;&amp; userForm.country.$touched"
+              >
+                Please select product
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="salary">Harga</label>
+              <input
+                class="form-control"
+                id="editSalary"
+                type="number"
+                name="salary"
+                ng-model="crudFormSalary"
+                placeholder="Edit Harga"
+                min="1"
+                required="required"
+              />
+              <div
+                class="form-alert alert alert-danger"
+                ng-show="userForm.salary.$invalid &amp;&amp; userForm.salary.$touched"
+              >
+                <span ng-show="userForm.salary.$error.number"
+                  >Please input valid number</span
+                ><span ng-show="userForm.salary.$error.min"
+                  >Tolong masukkan harga</span
+                ><span ng-show="userForm.salary.$error.required"
+                  >Tolong masukkan harga</span
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email(s)</label>
+              <textarea
+                class="form-control"
+                id="editEmail"
+                name="email"
+                ng-model="crudFormEmail"
+                ng-change="checkEmail(editUserId)"
+                placeholder="Edit email(s), separated by new lines"
+                required="required"
+                rows="3"
+              ></textarea>
+            </div>
+            <div
+              class="form-alert alert alert-danger"
+              ng-show="userForm.email.$invalid &amp;&amp; userForm.email.$touched"
+            >
+              <span ng-show="userForm.email.$error.email"
+                >Please input valid email</span
+              ><span ng-show="userForm.email.$error.required"
+                >Please input email</span
+              >
+            </div>
+            <div class="form-alert alert alert-danger" ng-show="emailExisted">
+              This email has been registerd by other user
+            </div>
+            <button
+              class="btn btn-primary"
+              ng-click="saveEdit(editUserId)"
+              ng-disabled="userForm.$invalid || emailExisted"
+            >
+              <i class="glyphicon glyphicon-pencil"> </i>Save change
+            </button>
+            <button class="btn btn-primary" ng-click="triggerForm = false">
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./src/main.js"></script>
+  </body>
+</html>

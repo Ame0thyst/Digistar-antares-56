@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="left-side">
+        <img src="/assets/img/antars.png" alt="Logo antares" class="logo" />
+      </div>
+      <div class="right-side">
+        <form id="loginForm">
+          <div class="con">
+            <header class="head-form">
+              <h2 id="formTitle">Log In</h2>
+              <p id="formDesc">login here using your username and password</p>
+            </header>
+            <br />
+            <div class="field-set">
+              <span class="input-item">
+                <i class="fa fa-user-circle"></i>
+              </span>
+              <input
+                class="form-input"
+                id="txt-input"
+                type="text"
+                placeholder="@UserName"
+                required
+              />
+              <br />
+              <span class="input-item"> </span>
+              <input
+                class="form-input"
+                type="password"
+                placeholder="Password"
+                id="pwd"
+                name="password"
+                required
+              />
+              <br />
+              <!-- Tombol Log In -->
+              <button type="button" class="log-in" id="loginBtn">Log In</button>
+              <!-- Tombol Sign Up, disembunyikan default -->
+              <button
+                type="button"
+                class="sign-up-submit"
+                id="signUpSubmitBtn"
+                style="display: none"
+              >
+                Sign Up
+              </button>
+            </div>
+            <div class="other">
+              <button type="button" class="btn submits frgt-pass">
+                Forgot Password
+              </button>
+              <button type="button" class="btn submits sign-up" id="signUpBtn">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

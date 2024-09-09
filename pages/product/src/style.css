@@ -1,0 +1,172 @@
+/* Navbar styling remains the same */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.91); /* Dark background color */
+  border: none; /* Remove border */
+  border-radius: 0; /* Remove border radius */
+  padding: 10px 20px; /* Padding for navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern look */
+  z-index: 1000; /* Ensure the navbar stays on top */
+  position: fixed; /* Fix the navbar to the top */
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: space-between; /* Space out left and right containers */
+  align-items: center; /* Center items vertically */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center; /* Center items vertically within this container */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center; /* Center items vertically within this container */
+}
+.navbar-brand {
+  padding: 0; /* Remove padding from navbar-brand */
+  width: max-content;
+  height: max-content;
+}
+
+.nav-icon {
+  font-size: auto; /* Adjust font size for the icon */
+  color: #ffffff; /* Set icon color to white */
+  margin-right: 15px; /* Space between icons */
+  width: 28px; /* Set width */
+  height: 35px;
+}
+
+.nav-logo {
+  height: 40px; /* Set height for the company logo */
+  margin-right: 20px; /* Space between logo and title */
+}
+
+.nav-right-icon {
+  height: 30px; /* Adjust the height for the right-side logos */
+  margin-left: 20px; /* Space between the right-side logos */
+}
+
+.navbar-title {
+  color: #f66a1d; /* Title text color */
+  font-size: 18px; /* Font size for the title */
+  line-height: 40px; /* Center align the title vertically */
+  font-weight: bold; /* Bold text for title */
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30%;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+/* Ensure content below the navbar is pushed down */
+body {
+  padding-top: 60px; /* Adjust based on the height of your navbar */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 767px) {
+  .navbar-title {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+}
+
+th {
+  text-align: center;
+}
+
+.glyphicon {
+  margin-right: 10px;
+}
+
+.crud-table {
+  max-width: 800px;
+  padding: 40px 0;
+}
+
+.form-alert {
+  margin-top: 10px;
+}
+
+.form-inline {
+  margin-bottom: 20px;
+}
+pre {
+  border: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
+
+.btn btn-primar {
+  background-color: rgb(235, 118, 118);
+}
+
+button#downloadButton {
+  background-color: #007bff;
+}
+
+button#downloadButton:hover {
+  background-color: #0056b3;
+}
+
+/**/
+.button-container {
+  margin-bottom: 15px;
+}
+
+.btn.active {
+  background-color: #ff9900;
+  color: white;
+  border-color: #ff9900;
+}
+
+.btn-group .dropdown-menu {
+  min-width: 100px;
+  padding: 5px 0;
+}
+
+.dropdown-menu > li > a {
+  padding: 5px 15px;
+}
+
+#firstLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 20%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.mainContent {
+  width: 80%;
+}
