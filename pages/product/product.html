@@ -104,7 +104,7 @@
               <th ng-click="orderBy('country')">Tag</th>
               <th ng-click="orderBy('salary')">Harga</th>
               <th ng-click="orderBy('email')">Deskripsi</th>
-
+              <th ng-click="orderBy('spesification')">Spesification</th>
               <th><img src="./assets/edit.svg" alt="edit" /></th>
               <th><img src="./assets/delete.svg" alt="delete" /></th>
             </tr>
@@ -116,7 +116,11 @@
               <td>{{ user.name }}</td>
               <td>{{ user.country }}</td>
               <td>{{ user.salary }}</td>
+
               <td><pre>{{ user.email.split('\n').join('\n') }}</pre></td>
+              <td>
+                <pre>{{ user.spesification.split('\n').join('\n') }}</pre>
+              </td>
               <td>
                 <button class="btn btn-primary" ng-click="editUser(user)">
                   Edit
@@ -140,7 +144,11 @@
         <div class="crude-form__wrapper" ng-show="triggerForm">
           <h3 ng-show="editForm">Edit Product</h3>
           <h3 ng-show="addForm">Add Product</h3>
+          \
+
+          <!-- form -->
           <form name="userForm" ng-model="userForm">
+            <!-- profile product -->
             <div class="form-group">
               <label for="image">Profile Product</label>
               <input
@@ -159,6 +167,8 @@
                 />
               </div>
             </div>
+
+            <!-- nama prd-->
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -177,6 +187,8 @@
                 Please input name
               </div>
             </div>
+
+            <!-- tag produk-->
             <div class="form-group">
               <label for="country">Tag</label>
               <select
@@ -197,6 +209,8 @@
                 Please select product
               </div>
             </div>
+
+            <!-- harga product-->
             <div class="form-group">
               <label for="salary">Harga</label>
               <input
@@ -222,6 +236,8 @@
                 >
               </div>
             </div>
+
+            <!-- deskripsi produk -->
             <div class="form-group">
               <label for="email" id="deskripsi">Description</label>
               <textarea
@@ -241,6 +257,30 @@
                 "
               ></textarea>
             </div>
+
+            <!-- spesification produk -->
+            <div class="form-group">
+              <label for="spesification" id="spesification"
+                >spesification</label
+              >
+              <textarea
+                class="form-control"
+                id="editSpesification"
+                name="spesification"
+                ng-model="crudFormSpesification"
+                ng-change="checkSpesification(editUserId)"
+                placeholder="Product Spesification"
+                required="required"
+                rows="3"
+                style="
+                  max-width: 60%;
+                  width: 100%;
+                  overflow-y: auto;
+                  resize: none;
+                "
+              ></textarea>
+            </div>
+            <!-- -->
             <div
               class="form-alert alert alert-danger"
               ng-show="userForm.email.$invalid &amp;&amp; userForm.email.$touched"
@@ -254,13 +294,34 @@
             <div class="form-alert alert alert-danger" ng-show="emailExisted">
               This description has been registerd by other user
             </div>
+
             <button
               class="btn btn-primary"
               ng-click="saveEdit(editUserId)"
-              ng-disabled="userForm.$invalid || emailExisted"
+              ng-disabled="userForm.$invalid || emailExisted || spesificationExisted"
             >
               <i class="glyphicon glyphicon-pencil"> </i>Save change
             </button>
+
+            <!-- -->
+            <div
+              class="form-alert alert alert-danger"
+              ng-show="userForm.spesification.$invalid &amp;&amp; userForm.spesification.$touched"
+            >
+              <span ng-show="userForm.spesification.$error.spesification"
+                >Please input spesification</span
+              ><span ng-show="userForm.spesification.$error.required"
+                >Please input spesification</span
+              >
+            </div>
+            <div
+              class="form-alert alert alert-danger"
+              ng-show="spesificationExisted"
+            >
+              This spesification has been registerd by other user
+            </div>
+
+            <!-- -->
             <button class="btn btn-primary" ng-click="triggerForm = false">
               Cancel
             </button>

@@ -28,11 +28,13 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
         $scope.editForm = true;
         $scope.addForm = false;
         $scope.emailExisted = false;
+        $scope.spesificationExisted = false;
         $scope.editUserId = index;
         $scope.crudFormName = $scope.users[index].name;
         $scope.crudFormCountry = $scope.users[index].country;
         $scope.crudFormSalary = $scope.users[index].salary;
         $scope.crudFormEmail = $scope.users[index].email;
+        $scope.crudFormEmail = $scope.users[index].spesification;
         $scope.imageSrc = $scope.users[index].image;
     };
     
@@ -43,6 +45,7 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
                 country: $scope.crudFormCountry,
                 salary: $scope.crudFormSalary,
                 email: $scope.crudFormEmail,
+                spesification: $scope.crudFormSpesification,
                 image: $scope.imageSrc
             }
             $scope.users.push(newUser);
@@ -52,6 +55,7 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
             $scope.users[userId].country = $scope.crudFormCountry;
             $scope.users[userId].salary = $scope.crudFormSalary;
             $scope.users[userId].email = $scope.crudFormEmail;
+            $scope.users[userId].spesification = $scope.crudFormSpesification   ;
             $scope.users[userId].image = $scope.imageSrc;                
         }
         
@@ -71,11 +75,13 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
         $scope.editForm = false;
         $scope.addForm = true;
         $scope.emailExisted = false;
+        $scope.spesificationExisted = false;
         $scope.userForm.$setUntouched();
         $scope.crudFormName = '';
         $scope.crudFormCountry = '';
         $scope.crudFormSalary = '';
         $scope.crudFormEmail = '';
+        $scope.crudFormSpesification = '';
         $scope.imageSrc = '';
     }
 
@@ -83,6 +89,13 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
         if(userId === 'new' || $scope.crudFormEmail !== $scope.users[userId].email){
             $scope.emailExisted = $scope.users.some(function(user){
                 return user.email === $scope.crudFormEmail;
+            });                
+        }
+    }
+    $scope.checkSpesification = function(userId){
+        if(userId === 'new' || $scope.crudFormSpesification !== $scope.users[userId].spesification){
+            $scope.spesificationExisted = $scope.users.some(function(user){
+                return user.spesification === $scope.crudFormSpesification;
             });                
         }
     }
