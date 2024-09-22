@@ -1,56 +1,88 @@
 /* Navbar styling remains the same */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.91); /* Dark background color */
-  border: none; /* Remove border */
-  border-radius: 0; /* Remove border radius */
-  padding: 10px 20px; /* Padding for navbar */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern look */
-  z-index: 1000; /* Ensure the navbar stays on top */
-  position: fixed; /* Fix the navbar to the top */
-  width: 100%; /* Full width */
+nav {
   display: flex;
-  justify-content: space-between; /* Space out left and right containers */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
 }
-
+nav h1 {
+  font-size: 20px;
+}
 .navbar-left {
   display: flex;
-  align-items: center; /* Center items vertically within this container */
+  align-items: center;
+}
+
+.navbar-left img {
+  cursor: pointer;
+}
+
+.navbar-left img.home-logo {
+  margin-right: 10px;
+}
+
+.navbar-left h1 {
+  color: orange;
+  margin: 0;
+  margin-left: 20px;
+  font-weight: bold;
 }
 
 .navbar-right {
   display: flex;
-  align-items: center; /* Center items vertically within this container */
-}
-.navbar-brand {
-  padding: 0; /* Remove padding from navbar-brand */
-  width: max-content;
-  height: max-content;
+  align-items: center;
 }
 
-.nav-icon {
-  font-size: auto; /* Adjust font size for the icon */
-  color: #ffffff; /* Set icon color to white */
-  margin-right: 15px; /* Space between icons */
-  width: 28px; /* Set width */
-  height: 35px;
+.navbar-right img {
+  cursor: pointer;
+  margin-left: 20px;
 }
 
-.nav-logo {
-  height: 40px; /* Set height for the company logo */
-  margin-right: 20px; /* Space between logo and title */
+.dropdown,
+.notification,
+.language-dropdown {
+  position: absolute;
+  display: none;
+  background-color: white;
+  color: black;
+  min-width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.nav-right-icon {
-  height: 30px; /* Adjust the height for the right-side logos */
-  margin-left: 20px; /* Space between the right-side logos */
+.dropdown-content,
+.notification-content,
+.language-options {
+  padding: 10px;
+  list-style: none;
 }
 
-.navbar-title {
-  color: #f66a1d; /* Title text color */
-  font-size: 18px; /* Font size for the title */
-  line-height: 40px; /* Center align the title vertically */
-  font-weight: bold; /* Bold text for title */
+.dropdown-content li,
+.notification-content li,
+.language-options li {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.dropdown-content li:hover,
+.notification-content li:hover,
+.language-options li:hover {
+  background-color: #f1f1f1;
+}
+
+.profile-dropdown img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbar-right .language-icon {
+  margin-left: 10px;
 }
 .container {
   display: flex;
@@ -64,7 +96,7 @@
 /* Ensure content below the navbar is pushed down */
 body {
   padding-top: 60px; /* Adjust based on the height of your navbar */
-  width: 90%;
+  width: 100%;
 }
 
 /* Responsive design for smaller screens */

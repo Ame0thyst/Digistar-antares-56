@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="www.google.com">
+          <a class="navbar-brand" href="/index.html">
             <img src="./assets/house-door.svg" alt="Home" class="nav-icon" />
           </a>
           <a class="navbar-brand" href="#">
@@ -42,8 +42,59 @@
           </a>
         </div>
       </div>
-    </nav>
+    </nav> -->
+    <nav>
+      <div class="navbar-left">
+        <img
+          src="./assets/house-door.svg"
+          alt="Home"
+          class="home-logo"
+          onclick="window.location.href='/index.html'"
+        />
+        <img src="./assets/logo_antares.svg" alt="Company Logo" />
+        <h1>Product Catalogue Management</h1>
+      </div>
 
+      <div class="navbar-right">
+        <!-- Language Icon -->
+        <img
+          src="./assets/language.svg"
+          alt="Language"
+          class="language-icon"
+          id="language-icon"
+        />
+        <div class="language-dropdown" id="language-dropdown">
+          <ul class="language-options">
+            <li onclick="changeLanguage('en')">English</li>
+            <li onclick="changeLanguage('id')">Indonesia</li>
+          </ul>
+        </div>
+
+        <!-- Notification Icon -->
+        <img
+          src="./assets/bell.svg"
+          alt="Notifications"
+          id="notification-icon"
+        />
+        <div class="notification" id="notification-dropdown">
+          <ul class="notification-content">
+            <li>No new notifications</li>
+          </ul>
+        </div>
+
+        <!-- Profile Icon -->
+        <img src="./assets/profile.svg" alt="Profile" id="profile-icon" />
+        <div class="dropdown" id="profile-dropdown">
+          <ul class="dropdown-content">
+            <li>
+              <img src="user-photo.jpg" alt="User Photo" />
+              <span>Username</span>
+            </li>
+            <li onclick="signOut()">Sign Out</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <!-- main content-->
     <div class="container crud-table" ng-app="myApp" ng-controller="namesCtrl">
       <div class="mainContent">
@@ -329,7 +380,68 @@
         </div>
       </div>
     </div>
+    <script>
+      // Toggle Profile Dropdown
+      document
+        .getElementById("profile-icon")
+        .addEventListener("click", function () {
+          const profileDropdown = document.getElementById("profile-dropdown");
+          profileDropdown.style.display =
+            profileDropdown.style.display === "block" ? "none" : "block";
+        });
 
+      // Toggle Notification Dropdown
+      document
+        .getElementById("notification-icon")
+        .addEventListener("click", function () {
+          const notificationDropdown = document.getElementById(
+            "notification-dropdown"
+          );
+          notificationDropdown.style.display =
+            notificationDropdown.style.display === "block" ? "none" : "block";
+        });
+
+      // Toggle Language Dropdown
+      document
+        .getElementById("language-icon")
+        .addEventListener("click", function () {
+          const languageDropdown = document.getElementById("language-dropdown");
+          languageDropdown.style.display =
+            languageDropdown.style.display === "block" ? "none" : "block";
+        });
+
+      // Change Language Function
+      function changeLanguage(lang) {
+        if (lang === "en") {
+          alert("Language changed to English");
+          // Logic to change content language to English
+        } else if (lang === "id") {
+          alert("Language changed to Indonesian");
+          // Logic to change content language to Indonesian
+        }
+        document.getElementById("language-dropdown").style.display = "none";
+      }
+
+      // Sign Out Function
+      function signOut() {
+        alert("Signing out...");
+        // Logic to handle sign out
+      }
+
+      // Close dropdowns if clicked outside
+      window.addEventListener("click", function (e) {
+        if (!e.target.matches("#profile-icon")) {
+          document.getElementById("profile-dropdown").style.display = "none";
+        }
+        if (!e.target.matches("#notification-icon")) {
+          document.getElementById("notification-dropdown").style.display =
+            "none";
+        }
+        if (!e.target.matches("#language-icon")) {
+          document.getElementById("language-dropdown").style.display = "none";
+        }
+      });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

@@ -274,6 +274,7 @@
       }
       .mui-2cw6jc {
         margin-left: auto;
+        right: 0;
       }
       @media (min-width: 0px) {
         .mui-2cw6jc {
@@ -2259,6 +2260,72 @@
         font-weight: 600;
         margin-top: 40px;
       }
+
+      /**/
+      .burger-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Positioning dropdown to the right */
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0; /* Position dropdown on the right side */
+        background-color: white;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        min-width: 200px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out; /* Smooth transition */
+      }
+
+      .dropdown.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0); /* Moves dropdown into view */
+      }
+
+      .dropdown a,
+      .dropdown button {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: black;
+        border: none;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .dropdown a:hover,
+      .dropdown button:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown button {
+        font-size: 16px;
+      }
+
+      /* Additional CSS from your setup */
+      .mui-2cw6jc {
+        margin-left: auto; /* Ensures that the button stays on the right */
+      }
+
+      @media (min-width: 0px) {
+        .mui-2cw6jc {
+          display: inline-flex;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .mui-2cw6jc {
+          display: none;
+        }
+      }
     </style>
     <link rel="stylesheet" href="css/7a0d667e04d8931e.css" />
     <link rel="stylesheet" href="css/a03875f40039e4de.css" />
@@ -2288,7 +2355,7 @@
                 src="assets/img/logo_antares.svg"
               />
             </div>
-            <div class="MuiBox-root mui-2cw6jc">
+            <!-- <div class="MuiBox-root mui-2cw6jc">
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium mui-1yxmbwk"
                 tabindex="0"
@@ -2306,6 +2373,32 @@
                   src="assets/img/burger_menu.svg"
                 />
               </button>
+            </div> -->
+
+            <div class="MuiBox-root mui-2cw6jc">
+              <button
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium mui-1yxmbwk burger-button"
+                id="burgerMenu"
+                type="button"
+              >
+                <img
+                  alt=""
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                  decoding="async"
+                  style="color: transparent"
+                  src="assets/img/burger_menu.svg"
+                />
+              </button>
+
+              <div class="dropdown" id="dropdownMenu">
+                <a href="#">HOME</a>
+                <a href="/pages/solution/solution.html">SOLUTION</a>
+                <a href="https://docs.antares.id/">DOCUMENTATION</a>
+                <hr />
+                <button id="loginButton">Login</button>
+              </div>
             </div>
             <div class="MuiBox-root mui-17eaevp">
               <div class="MuiBox-root mui-1478f2b">
@@ -2377,106 +2470,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="MuiBox-root mui-1hy6lbc" data-testid="header">
-        <div class="MuiContainer-root MuiContainer-maxWidthXl mui-1venyuc">
-          <div class="MuiBox-root mui-1d21q3i">
-            <div class="MuiBox-root mui-1x3gguc">
-              <img
-                alt=""
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
-                style="
-                  position: absolute;
-                  height: 100%;
-                  width: 100%;
-                  left: 0;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                  color: transparent;
-                "
-                src="assets/img/logo_antares.svg"
-              />
-            </div>
-            <div class="MuiBox-root mui-2cw6jc">
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium mui-1yxmbwk"
-                tabindex="0"
-                type="button"
-                data-testid="menu-button"
-              >
-                <img
-                  alt=""
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                  data-nimg="1"
-                  style="color: transparent"
-                  src="assets/img/burger_menu.svg"
-                />
-              </button>
-            </div>
-            <div class="MuiBox-root mui-17eaevp">
-              <div class="MuiBox-root mui-1478f2b">
-                <div class="MuiBox-root mui-li76yq"></div>
-                <div class="MuiBox-root mui-1h3c0nq">
-                  <div class="group MuiBox-root mui-1pyd7d3">
-                    <a
-                      href="/"
-                      tabindex="0"
-                      class="flex cursor-pointer items-center justify-start gap-1 false"
-                      >Home</a
-                    >
-                  </div>
-                  <div class="group MuiBox-root mui-3zsh4d">
-                    <span
-                      tabindex="0"
-                      class="pointer-events-auto flex cursor-pointer items-center justify-start gap-1 false"
-                      >Products<svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ml-1.5 block text-inherit transition delay-150 duration-300 ease-in-out group-hover:rotate-180 lg:hidden mui-vubbuv"
-                        focusable="false"
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        data-testid="KeyboardArrowDownRoundedIcon"
-                      >
-                        <path
-                          d="M8.12 9.29 12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7a.9959.9959 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0"
-                        ></path></svg
-                    ></span>
-                  </div>
-                  <div class="group MuiBox-root mui-3zsh4d">
-                    <span
-                      tabindex="0"
-                      class="pointer-events-auto flex cursor-pointer items-center justify-start gap-1 false"
-                      >Solutions<svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ml-1.5 block text-inherit transition delay-150 duration-300 ease-in-out group-hover:rotate-180 lg:hidden mui-vubbuv"
-                        focusable="false"
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        data-testid="KeyboardArrowDownRoundedIcon"
-                      >
-                        <path
-                          d="M8.12 9.29 12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7a.9959.9959 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0"
-                        ></path></svg
-                    ></span>
-                  </div>
-                  <div class="group MuiBox-root mui-3zsh4d">
-                    <a
-                      href="https://docs.antares.id"
-                      tabindex="0"
-                      class="flex cursor-pointer items-center justify-start gap-1 false"
-                      >Documentations</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="MuiBox-root mui-w1wgdt"></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+
       <div class="MuiBox-root mui-e9qtj8">
         <article
           data-testid="container"
@@ -3974,6 +3968,30 @@
         </div>
       </footer>
     </main>
+    <script>
+      const burgerButton = document.getElementById("burgerMenu");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      burgerButton.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("show");
+      });
+
+      // Close dropdown when clicking outside
+      window.addEventListener("click", function (e) {
+        if (
+          !burgerButton.contains(e.target) &&
+          !dropdownMenu.contains(e.target)
+        ) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
+
+      // Redirect to login page when button clicked
+      const loginButton = document.getElementById("loginButton");
+      loginButton.addEventListener("click", () => {
+        window.location.href = "/pages/login/login.html"; // Replace with the desired login URL
+      });
+    </script>
     <noscript
       ><img
         height="1"
