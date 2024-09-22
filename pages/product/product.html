@@ -152,9 +152,9 @@
           <thead>
             <tr>
               <th ng-click="orderBy('name')">Name</th>
-              <th ng-click="orderBy('country')">Tag</th>
-              <th ng-click="orderBy('salary')">Harga</th>
-              <th ng-click="orderBy('email')">Deskripsi</th>
+              <th ng-click="orderBy('country')">Category</th>
+              <th ng-click="orderBy('salary')">Price</th>
+              <th ng-click="orderBy('email')">Description</th>
               <th ng-click="orderBy('spesification')">Spesification</th>
               <th><img src="./assets/edit.svg" alt="edit" /></th>
               <th><img src="./assets/delete.svg" alt="delete" /></th>
@@ -195,7 +195,6 @@
         <div class="crude-form__wrapper" ng-show="triggerForm">
           <h3 ng-show="editForm">Edit Product</h3>
           <h3 ng-show="addForm">Add Product</h3>
-          \
 
           <!-- form -->
           <form name="userForm" ng-model="userForm">
@@ -241,7 +240,7 @@
 
             <!-- tag produk-->
             <div class="form-group">
-              <label for="country">Tag</label>
+              <label for="country">Category</label>
               <select
                 class="form-control"
                 id="editCountry"
@@ -249,7 +248,7 @@
                 ng-model="crudFormCountry"
                 required="required"
               >
-                <option value="" disabled selected>Select tag</option>
+                <option value="" disabled selected>Select Category</option>
                 <option value="Farm">Farm</option>
                 <option value="Fish">Fish</option>
               </select>
@@ -270,7 +269,7 @@
                 type="number"
                 name="salary"
                 ng-model="crudFormSalary"
-                placeholder="Edit Harga"
+                placeholder="Edit Category "
                 min="1"
                 required="required"
               />
@@ -312,7 +311,7 @@
             <!-- spesification produk -->
             <div class="form-group">
               <label for="spesification" id="spesification"
-                >spesification</label
+                >Spesification</label
               >
               <textarea
                 class="form-control"
