@@ -1,5 +1,7 @@
 <div align="center"><a name="readme-top"></a>
-![Logo](assets/img/antars.png)
+<div align="center">
+  <img src="assets/img/antars.png" alt="Logo" style="max-width: 100%; height: auto;" />
+</div>
 
 # Team 56 - Antares Product Management Case
 
