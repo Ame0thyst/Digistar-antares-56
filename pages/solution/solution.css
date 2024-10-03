@@ -70,7 +70,7 @@ html {
   z-index: 2;
   background-color: white;
   padding: 20px;
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -118,11 +118,30 @@ html {
 
 /* Links ke halaman lain */
 .popup-section:nth-child(1) {
-  background-color: #ffcccc;
+  background-color: #ff9900;
 }
 .popup-section:nth-child(2) {
   background-color: #ccffcc;
 }
 .popup-section:nth-child(3) {
-  background-color: #ccccff;
+  background-color: #f66d12;
+}
+
+.bubble {
+  display: none; /* Sembunyikan bubble secara default */
+  position: absolute;
+  bottom: 100%; /* Tempatkan di atas link */
+  left: 50%; /* Posisikan di tengah */
+  transform: translateX(-50%); /* Pusatkan */
+  background-color: #333; /* Warna background bubble */
+  color: #fff; /* Warna teks */
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap; /* Mencegah teks terpotong */
+  z-index: 1; /* Pastikan bubble muncul di atas */
+  margin-bottom: 5px; /* Spasi antara bubble dan gambar */
+}
+
+.return-home:hover .bubble {
+  display: block; /* Tampilkan bubble saat hover */
 }
