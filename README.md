@@ -1,8 +1,8 @@
-<!-- ![Logo](assets/Team_10.webp) -->
+![Logo](assets/img/antars.png)
 
 <div align="center"><a name="readme-top"></a>
 
-# Team 10 - NYC Properties
+# Team 56 - Antares Product Management Case
 
 An open-source of Digistar Program 2024 by Team 56. <br/>
 
