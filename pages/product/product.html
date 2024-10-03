@@ -163,7 +163,11 @@
           </thead>
           <tbody class="text-center">
             <tr
-              ng-repeat="user in resultUser = (users | filter: filterUsers) | filter: {'name': searchName} | orderBy: order"
+              ng-repeat="user in resultUser = (users | filter: filterUsers) | filter: {
+                'name': searchName,
+                'spesification' : searchSpesiciation,
+                'terms' : searchTerms
+              } | orderBy: order"
             >
               <td>{{ user.name }}</td>
               <td>{{ user.country }}</td>

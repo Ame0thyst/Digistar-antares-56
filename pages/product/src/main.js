@@ -14,6 +14,9 @@ myApp.controller('namesCtrl', function($scope, $filter,$http) {
     //     {id: 1, name:'Jani', country:'Norway', salary: 5, email: 'Guithay65@gustr.com', image: ''},
     //     {id: 2, name:'Carl', country:'Sweden', salary: 24, email: 'cluphetret@hotmail.com', image: ''}
     // ];
+   
+    
+    
     $http.get('users.json').then(function(response) {
         $scope.users = response.data;
     });
