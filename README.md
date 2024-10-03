@@ -1,6 +1,5 @@
-![Logo](assets/img/antars.png)
-
 <div align="center"><a name="readme-top"></a>
+![Logo](assets/img/antars.png)
 
 # Team 56 - Antares Product Management Case
 
