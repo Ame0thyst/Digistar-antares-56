@@ -115,7 +115,7 @@ th {
 }
 
 .crud-table {
-  max-width: 800px;
+  max-width: 90%;
   padding: 40px 0;
 }
 
@@ -171,7 +171,7 @@ button#downloadButton:hover {
   justify-content: flex-end;
 }
 
-.sidebar {
+/* .sidebar {
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -198,7 +198,7 @@ button#downloadButton:hover {
   text-decoration: none;
   color: #333;
   font-size: 18px;
-}
+} */
 
 /* .mainContent {
   width: 80%;
