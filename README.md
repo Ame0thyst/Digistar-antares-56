@@ -8,13 +8,13 @@ An open-source of Digistar Program 2024 by Team 56. <br/>
 
 ## Contributor
 
-|        **Name**         |  **Role**   |
-| :---------------------: | :---------: | ---------- |
-|  Gilang Wiko Wicaksono  | _Front End_ |
-| Bernike Hernita Sofiana |  _Hustler_  |
-|     Nabilah Mufidah     |  _Hustler_  | NamakuDewa |
-| Muhammad Afdal Adiguna  |  _Hipster_  |
-|  Nadya Saski Wardiman   |  _Backend_  |
+| Name                    | Role             |
+| ----------------------- | ---------------- |
+| Bernike Hernita Sofiana | Hustler          |
+| Nabilah Mufidah         | Hustler          |
+| Muhammad Afdal Adiguna  | Hipster          |
+| Gilang Wiko Wicaksono   | Hacker Front End |
+| Nadya Saski Wardiman    | Hacker Back End  |
 
 </div>
 
@@ -22,9 +22,6 @@ An open-source of Digistar Program 2024 by Team 56. <br/>
 
 | Vercel 1 | [https://digistar-antares-56-ovayr3x93-meyys-projects.vercel.app/](https://digistar-antares-56-ovayr3x93-meyys-projects.vercel.app/) |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Vercel 2 | [https://km-feb24-jayapura-10.vercel.app/](https://km-feb24-jayapura-10.vercel.app/)                                                 |
-
-## Feature
 
 ![Logo](assets/score.png)
 
